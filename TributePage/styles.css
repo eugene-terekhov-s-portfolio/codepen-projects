@@ -8,3 +8,21 @@ body {
 #header-group {
   margin-bottom: 30px;
 }
+
+.padded-bottom {
+  margin-bottom: 10px;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.bordered {
+  border: 1px solid blue;
+}
+
+figcaption {
+  text-align: center;
+}
