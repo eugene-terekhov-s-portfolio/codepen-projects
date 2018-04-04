@@ -7,38 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/brands.css" 
+        integrity="sha384-ATC/oZittI09GYIoscTZKDdBr/kI3lCwzw3oBMnOYCPVNJ4i7elNlCxSgLfdfFbl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" 
+        integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
-        <a href="#" class="navbar-brand">Eugene Terekhov</a>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-md" id="home">
+        <a href="#home" class="navbar-brand">Eugene Terekhov</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse" id="navbarMenu">
             <ul class="navbar-nav">
                 <li class="navbar-item">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="#home" class="nav-link">Home</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#" class="nav-link">Projects</a>
+                    <a href="#project-cards-section" class="nav-link">Projects</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#" class="nav-link">About me</a>
+                    <a href="#about-me-section" class="nav-link">About me</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#" class="nav-link">Contacts</a>
+                    <a href="#contacts-section" class="nav-link">Contacts</a>
                 </li>            
             </ul>
         </div>
     </nav>
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container" id="header-section">
-            <h1 class="display-3">Portfolio page</h1>
-            <p class="lead">This is where my work is exposed...</p>
+    <section id="header-section">
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-3">Portfolio page</h1>
+                    <p class="lead">This is where my work is exposed...</p>
+                </div>
         </div>
-    </div>
+    </section>
 
     <div class="container" id="project-cards-section">
         <h3 class="display-5">freeCodeCamp projects:</h3>
@@ -137,17 +143,19 @@
     </div>
 
     <div class="container" id="contacts-section">
-        <div class="d-flex justify-content-between">
-            <div>
-                <h5 class="display-5">You can find me here:</h5>
-                <address>My address</address>
+        <h5 class="display-5">Get in touch:</h5>
+        <div class="d-flex flex-wrap">
+            <div class="m-1">
+                <a class="btn btn-info social-button" href="https://github.com/nergal-perm" target="_blank"><i class="fab fa-github"></i>&nbsp;Github</a>
             </div>
-            <div>
-                <h5 class="display-5">Get in touch:</h5>
-                <ul>
-                    <li>Twitter</li>
-                    <li>Github</li>
-                </ul>
+            <div class="m-1">
+                <button type="button" class="btn btn-default social-button"><i class="fab fa-linkedin"></i>&nbsp;LinkedIn</button>
+            </div>
+            <div class="m-1">
+                <button type="button" class="btn btn-default social-button"><i class="fab fa-facebook"></i>&nbsp;Facebook</button>
+            </div>
+            <div class="m-1">
+                <button type="button" class="btn btn-default social-button"><i class="fab fa-codepen"></i>&nbsp;Codepen</button>
             </div>
         </div>
     </div>    

@@ -4,6 +4,6 @@ body {
     font-family: Raleway, 'Lucida Sans', Geneva, Verdana, sans-serif;
 }
 
-#header-section {
-    margin-top: 60px;
+.social-button {
+    min-width: 120px;
 }
