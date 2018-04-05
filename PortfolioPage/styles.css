@@ -7,3 +7,7 @@ body {
 .social-button {
     min-width: 120px;
 }
+
+.card-min-height {
+    min-height: 420px;
+}
