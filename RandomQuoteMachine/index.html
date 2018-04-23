@@ -1,0 +1,63 @@
+<!DOCTYPE=<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Random Quote Machine</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <script src="main.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo site_title">&nbsp;Random Quote Machine</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <!-- Language selection dropdown -->
+            <ul id="langdropdown" class="dropdown-content">
+                <li><a href="#!" class="language_selection_english">Ru</a></li>
+                <li><a href="#!" class="language_selection_russian">En</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="dropdown-trigger" href="#!" data-target="langdropdown">
+                    <span class="language_selection_dropdown">Select Language</span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="dropdown-trigger" href="#!" data-target="langdropdown">
+            <span class="language_selection_dropdown">Select Language</span>
+            <i class="material-icons right">arrow_drop_down</i>
+        </a></li>
+    </ul>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Materialize Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $(".dropdown-trigger").dropdown({ hover: false });
+            applySelectedLanguage('en');
+        });
+
+        function applySelectedLanguage(lang) {
+            $.getJSON( `assets/strings_${lang}.json`, function( data ) {
+                $.each( data, function( key, val ) {
+                    var elSelector = `.${key}`;
+                    $(elSelector).html(val);
+                });
+            });            
+        }
+    </script>
+</body>
+</html>
