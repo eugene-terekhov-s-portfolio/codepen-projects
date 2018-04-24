@@ -5,49 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" 
+        integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <title>Random Quote Machine</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Materialize Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
     <script src="main.js"></script>
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo site_title">&nbsp;Random Quote Machine</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <!-- Language selection dropdown -->
-            <ul id="langdropdown" class="dropdown-content">
-                <li><a href="#!" class="language_selection_english">Ru</a></li>
-                <li><a href="#!" class="language_selection_russian">En</a></li>
-            </ul>
-            <ul class="right hide-on-med-and-down">
-                <li><a class="dropdown-trigger" href="#!" data-target="langdropdown">
-                    <span class="language_selection_dropdown">Select Language</span>
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a></li>
-            </ul>
+        <div class="navbar navbar-dark bg-dark navbar-expand-md" id="home">
+            <a href="#home" class="navbar-brand site_title">&nbsp;Random Quote Machine</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="language_selection_dropdown">Language</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item language_selection_english" href="#">English</a>
+                          <a class="dropdown-item language_selection_russian" href="#">Russian</a>
+                        </div>
+                    </li>  
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-outline-success my-2 my-sm-0 next_quote_btn" type="button">Next quote</button>
+                </form>      
+            </div>
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        <li><a class="dropdown-trigger" href="#!" data-target="langdropdown">
-            <span class="language_selection_dropdown">Select Language</span>
-            <i class="material-icons right">arrow_drop_down</i>
-        </a></li>
-    </ul>
+    <div class="section">
+        <div class="intro">
+            <div class="inner">
+                <div class="content">
+                    <h1>Sample header</h1>
+                    <button class="btn btn-outline-success my-2 my-sm-0 next_quote_btn" type="button">Next quote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Materialize Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+        crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function(){
-            $('.sidenav').sidenav();
-            $(".dropdown-trigger").dropdown({ hover: false });
-            applySelectedLanguage('en');
+        $(document).ready(function() {
+            applySelectedLanguage("ru");
         });
 
         function applySelectedLanguage(lang) {
