@@ -9,7 +9,6 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" 
         integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
     <title>Random Quote Machine</title>
 
     <script src="main.js"></script>
@@ -40,14 +39,14 @@
         </div>
     </nav>
 
-    <div class="section">
-        <div class="intro">
-            <div class="inner">
-                <div class="content">
-                    <h1>Sample header</h1>
-                    <button class="btn btn-outline-success my-2 my-sm-0 next_quote_btn" type="button">Next quote</button>
-                </div>
-            </div>
+    <div class="container jumbotron">
+        <div class="content">
+            <h1>
+                <blockquote id="quote_text">Sample Header</blockquote>
+                <br />
+                <small id="quote_author"></small>
+            </h1>
+            
         </div>
     </div>
 
@@ -61,17 +60,47 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
         crossorigin="anonymous"></script>
     <script>
+        let LANG = "en";
         $(document).ready(function() {
-            applySelectedLanguage("ru");
+            applySelectedLanguage(LANG);
+            $(".next_quote_btn").click(getNextQuote);
+            $(".language_selection_english").click(function() {
+                LANG="en";
+                applySelectedLanguage(LANG);
+                $(".next_quote_btn").trigger("click");
+            });
+            $(".language_selection_russian").click(function() {
+                LANG="ru";
+                applySelectedLanguage(LANG);
+                $(".next_quote_btn").trigger("click");
+            });
         });
 
+        function getNextQuote() {
+            $.ajax(`http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=${LANG}`, {
+                crossDomain: true,
+                dataType: 'jsonp',
+                jsonp: 'jsonp',
+                success: parseQuote
+            });
+        }
+
+        function parseQuote(response) {
+            $("#quote_text").text(response.quoteText);
+            $("#quote_author").text(response.quoteAuthor);
+        }
+
         function applySelectedLanguage(lang) {
-            $.getJSON( `assets/strings_${lang}.json`, function( data ) {
-                $.each( data, function( key, val ) {
-                    var elSelector = `.${key}`;
-                    $(elSelector).html(val);
-                });
-            });            
+            $.ajax( `assets/strings_${lang}.json`, {
+                dataType: "json",
+                mimeType: "application/json",
+                success: function( data ) {
+                    $.each( data, function( key, val ) {
+                        var elSelector = `.${key}`;
+                        $(elSelector).html(val);
+                    });
+                }
+            });
         }
     </script>
 </body>

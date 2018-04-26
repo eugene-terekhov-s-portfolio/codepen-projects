@@ -1,7 +1,7 @@
 {
     "site_title":"&nbsp;Random Quote Machine",
     "language_selection_dropdown": "Select Language",
-    "language_selection_english": "En",
-    "language_selection_russian": "Ru",
+    "language_selection_english": "English",
+    "language_selection_russian": "Russian",
     "next_quote_btn": "Next Quote"
 }
